@@ -33,6 +33,13 @@ You should setup these, respectively, before use ~setup-cask~.
 
 This mechanism has a merit to be able to use specified version of ~Python~ and ~Emacs~.
 
+~setup-cask~'s version accepts ~snapshot~ and ~version code~. (see Cask [[https://github.com/cask/cask/releases][release]] page)
+
+And refference these action.yml
+- [[https://github.com/purcell/setup-emacs/blob/master/action.yml][setup-emacs/action.yml]]
+- [[https://github.com/actions/setup-python/blob/master/action.yml][setup-python/action.yml]]
+- [[https://github.com/conao3/setup-cask/blob/master/action.yml][setup-cask/action.yml]]
+
 ** Basic
 #+begin_src yaml
   jobs:
@@ -58,7 +65,7 @@ This mechanism has a merit to be able to use specified version of ~Python~ and ~
 
 This example is testing your package in below environment.
 - Emacs: ~26.3~
-- Python: ~3.6~
+- Python: ~3.6 (x64)~
 - Cask: ~snapshot~ (HEAD)
 
 ** Matrix testing
@@ -97,8 +104,31 @@ This example is testing your package in below environment.
 
 This example is testing your package in below environment.
 - Emacs: ~26.1~, ~26.2~, ~26.3~
-- Python: ~3.6~
+- Python: ~3.6 (x64)~
 - Cask: ~0.8.0~, ~0.8.4~, ~snapshot~ (HEAD)
+
+** Simplest
+#+begin_src yaml
+  jobs:
+    build:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v1
+        - uses: actions/setup-python@v1.1.1
+        - uses: purcell/setup-emacs@master
+          with:
+            version: '26.3'
+        - uses: conao3/setup-cask@master
+
+        - name: Run tests
+          run: make test
+
+#+end_src
+
+This example is testing your package in below environment.
+- Emacs: ~26.3~
+- Python: ~3.x (x64)~
+- Cask: ~snapshot~ (HEAD)
 
 * Information
 ** Donation
