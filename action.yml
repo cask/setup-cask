@@ -1,16 +1,15 @@
-name: 'Setup Python'
-description: 'Set up a specific version of Python and add the command-line tools to the PATH'
-author: 'GitHub'
+name: 'Setup Cask'
+description: 'Install a specific Cask version for use in your workflow.'
+author: 'Naoya Yamashita'
 inputs:
-  python-version:
-    description: 'Version range or exact version of a Python version to use, using semvers version range syntax.'
-    default: '3.x'
-  architecture:
-    description: 'The target architecture (x86, x64) of the Python interpreter.'
-    default: 'x64'
+  version:
+    description: 'The version of Emacs to install, e.g. "0.8.4", or "snapshot" for a recent development version.'
+    default: 'snapshot'
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
+
 branding:
   icon: 'code'
   color: 'yellow'

@@ -1,26 +1,29 @@
 name: Main workflow
 on: [push]
+
 jobs:
-  run:
-    name: Run
-    runs-on: ${{ matrix.operating-system }}
+  test:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
-        operating-system: [ubuntu-latest, windows-latest]
+        cask_version:
+          - '0.8.0'
+          - '0.8.4'
+          - 'snapshot'
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-
-    - name: Set Node.js 10.x
-      uses: actions/setup-node@master
+    - uses: actions/checkout@master
+    - uses: actions/setup-node@master
       with:
-        version: 10.x
+        node-version: 10.x
 
-    - name: npm install
-      run: npm install
+    - uses: purcell/setup-emacs@master
+      with:
+        version: 26.3
 
-    - name: Lint
-      run: npm run format-check
+    - run: npm install
+    - run: npm run format-check
+    - run: npm test
 
-    - name: npm test
-      run: npm test
+    - uses: ./
+      with:
+        version: ${{ matrix.cask_version }}

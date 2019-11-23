@@ -1,8 +1,8 @@
 {
-  "name": "setup-python",
-  "version": "1.0.0",
+  "name": "setup-cask",
+  "version": "0.0.1",
   "private": true,
-  "description": "Setup python action",
+  "description": "Github Action to set up a specific Cask version",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -13,19 +13,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/setup-python.git"
+    "url": "git+https://github.com/conao3/setup-cask.git"
   },
   "keywords": [
     "actions",
     "node",
     "setup"
   ],
-  "author": "GitHub",
+  "author": "Naoya Yamashita",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.0.0",
-    "@actions/tool-cache": "^1.0.0",
-    "semver": "^6.1.1"
+    "@actions/core": "^1.1.3",
+    "@actions/exec": "^1.0.1",
+    "@actions/io": "^1.0.1",
+    "@actions/tool-cache": "^1.1.2"
   },
   "devDependencies": {
     "@actions/io": "^1.0.0",
@@ -39,11 +40,5 @@
     "prettier": "^1.17.1",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.1"
-  },
-  "husky": {
-    "skipCI": true,
-    "hooks": {
-      "pre-commit": "npm run build && npm run format"
-    }
   }
 }
