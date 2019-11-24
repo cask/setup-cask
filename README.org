@@ -1,7 +1,7 @@
 #+author: conao
 #+date: <2019-11-23 Sat>
 
-[[https://github.com/conao3/setup-cask][https://raw.githubusercontent.com/conao3/files/master/blob/headers/png/feather.el.png]]
+[[https://github.com/conao3/setup-cask][https://raw.githubusercontent.com/conao3/files/master/blob/headers/png/setup-cask.png]]
 [[https://github.com/conao3/setup-cask/blob/master/LICENSE][https://img.shields.io/github/license/conao3/setup-cask.svg?style=flat-square]]
 [[https://github.com/conao3/setup-cask/releases][https://img.shields.io/github/tag/conao3/setup-cask.svg?style=flat-square]]
 [[https://github.com/conao3/setup-cask/actions][https://github.com/conao3/setup-cask/workflows/Main%20workflow/badge.svg]]
