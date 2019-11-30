@@ -92,7 +92,7 @@ This example is testing your package in below environment.
             architecture: 'x64'
         - uses: purcell/setup-emacs@master
           with:
-            version: '26.3'
+            version: ${{ matrix.emacs_version }}
 
         - uses: conao3/setup-cask@master
           with:
