@@ -5,14 +5,15 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         cask_version:
           - '0.8.0'
           - '0.8.4'
           - 'snapshot'
     steps:
-    - uses: actions/checkout@master
-    - uses: actions/setup-node@master
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
       with:
         node-version: 10.x
 
@@ -20,9 +21,9 @@ jobs:
       with:
         version: 26.3
 
-    - run: npm install
-    - run: npm run format-check
-    - run: npm test
+    - run: yarn install
+    - run: yarn run format-check
+    - run: yarn test
 
     - uses: ./
       with:
