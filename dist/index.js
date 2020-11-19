@@ -34,6 +34,75 @@ module.exports =
 /******/ 	// the startup function
 /******/ 	function startup() {
 /******/ 		// Load entry module and return exports
+/******/ 		return __webpack_require__(429);
+/******/ 	};
+/******/
+/******/ 	// run startup
+/******/ 	return startup();
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 87:
+/***/ (function(module) {
+
+module.exports = require("os");
+
+/***/ }),
+
+/***/ 129:
+/***/ (function(module) {
+
+module.exports = require("child_process");
+
+/***/ }),
+
+/***/ 357:
+/***/ (function(module) {
+
+module.exports = require("assert");
+
+/***/ }),
+
+/***/ 429:
+/***/ (function(module, __unusedexports, __webpack_require__) {
+
+module.exports =
+/******/ (function(modules, runtime) { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	__webpack_require__.ab = __dirname + "/";
+/******/
+/******/ 	// the startup function
+/******/ 	function startup() {
+/******/ 		// Load entry module and return exports
 /******/ 		return __webpack_require__(131);
 /******/ 	};
 /******/
@@ -44,7 +113,7 @@ module.exports =
 /******/ ({
 
 /***/ 1:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __nested_webpack_require_1416__) {
 
 "use strict";
 
@@ -57,10 +126,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const childProcess = __webpack_require__(129);
-const path = __webpack_require__(622);
-const util_1 = __webpack_require__(669);
-const ioUtil = __webpack_require__(672);
+const childProcess = __nested_webpack_require_1416__(129);
+const path = __nested_webpack_require_1416__(622);
+const util_1 = __nested_webpack_require_1416__(669);
+const ioUtil = __nested_webpack_require_1416__(672);
 const exec = util_1.promisify(childProcess.exec);
 /**
  * Copies a file or folder.
@@ -340,7 +409,7 @@ function copyFile(srcFile, destFile, force) {
 /***/ }),
 
 /***/ 9:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __nested_webpack_require_12972__) {
 
 "use strict";
 
@@ -354,9 +423,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const os = __webpack_require__(87);
-const events = __webpack_require__(614);
-const child = __webpack_require__(129);
+const os = __nested_webpack_require_12972__(87);
+const events = __nested_webpack_require_12972__(614);
+const child = __nested_webpack_require_12972__(129);
 /* eslint-disable @typescript-eslint/unbound-method */
 const IS_WINDOWS = process.platform === 'win32';
 /*
@@ -923,19 +992,19 @@ class ExecState extends events.EventEmitter {
 /***/ 87:
 /***/ (function(module) {
 
-module.exports = require("os");
+module.exports = __webpack_require__(87);
 
 /***/ }),
 
 /***/ 129:
 /***/ (function(module) {
 
-module.exports = require("child_process");
+module.exports = __webpack_require__(129);
 
 /***/ }),
 
 /***/ 131:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __nested_webpack_require_36155__) {
 
 "use strict";
 
@@ -955,10 +1024,10 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const core = __importStar(__webpack_require__(470));
-const exec = __importStar(__webpack_require__(986));
-const io = __importStar(__webpack_require__(1));
-const os = __importStar(__webpack_require__(87));
+const core = __importStar(__nested_webpack_require_36155__(470));
+const exec = __importStar(__nested_webpack_require_36155__(986));
+const io = __importStar(__nested_webpack_require_36155__(1));
+const os = __importStar(__nested_webpack_require_36155__(87));
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -999,17 +1068,17 @@ run();
 /***/ 357:
 /***/ (function(module) {
 
-module.exports = require("assert");
+module.exports = __webpack_require__(357);
 
 /***/ }),
 
 /***/ 431:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __nested_webpack_require_38776__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-const os = __webpack_require__(87);
+const os = __nested_webpack_require_38776__(87);
 /**
  * Commands
  *
@@ -1077,7 +1146,7 @@ function escape(s) {
 /***/ }),
 
 /***/ 470:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __nested_webpack_require_41000__) {
 
 "use strict";
 
@@ -1091,9 +1160,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const command_1 = __webpack_require__(431);
-const os = __webpack_require__(87);
-const path = __webpack_require__(622);
+const command_1 = __nested_webpack_require_41000__(431);
+const os = __nested_webpack_require_41000__(87);
+const path = __nested_webpack_require_41000__(622);
 /**
  * The code to exit an action
  */
@@ -1281,26 +1350,26 @@ exports.getState = getState;
 /***/ 614:
 /***/ (function(module) {
 
-module.exports = require("events");
+module.exports = __webpack_require__(614);
 
 /***/ }),
 
 /***/ 622:
 /***/ (function(module) {
 
-module.exports = require("path");
+module.exports = __webpack_require__(622);
 
 /***/ }),
 
 /***/ 669:
 /***/ (function(module) {
 
-module.exports = require("util");
+module.exports = __webpack_require__(669);
 
 /***/ }),
 
 /***/ 672:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __nested_webpack_require_47256__) {
 
 "use strict";
 
@@ -1314,9 +1383,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
-const assert_1 = __webpack_require__(357);
-const fs = __webpack_require__(747);
-const path = __webpack_require__(622);
+const assert_1 = __nested_webpack_require_47256__(357);
+const fs = __nested_webpack_require_47256__(747);
+const path = __nested_webpack_require_47256__(622);
 _a = fs.promises, exports.chmod = _a.chmod, exports.copyFile = _a.copyFile, exports.lstat = _a.lstat, exports.mkdir = _a.mkdir, exports.readdir = _a.readdir, exports.readlink = _a.readlink, exports.rename = _a.rename, exports.rmdir = _a.rmdir, exports.stat = _a.stat, exports.symlink = _a.symlink, exports.unlink = _a.unlink;
 exports.IS_WINDOWS = process.platform === 'win32';
 function exists(fsPath) {
@@ -1503,12 +1572,12 @@ function isUnixExecutable(stats) {
 /***/ 747:
 /***/ (function(module) {
 
-module.exports = require("fs");
+module.exports = __webpack_require__(747);
 
 /***/ }),
 
 /***/ 986:
-/***/ (function(__unusedmodule, exports, __webpack_require__) {
+/***/ (function(__unusedmodule, exports, __nested_webpack_require_54935__) {
 
 "use strict";
 
@@ -1522,7 +1591,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const tr = __webpack_require__(9);
+const tr = __nested_webpack_require_54935__(9);
 /**
  * Exec a command.
  * Output will be streamed to the live console.
@@ -1548,6 +1617,38 @@ function exec(commandLine, args, options) {
 }
 exports.exec = exec;
 //# sourceMappingURL=exec.js.map
+
+/***/ })
+
+/******/ });
+
+/***/ }),
+
+/***/ 614:
+/***/ (function(module) {
+
+module.exports = require("events");
+
+/***/ }),
+
+/***/ 622:
+/***/ (function(module) {
+
+module.exports = require("path");
+
+/***/ }),
+
+/***/ 669:
+/***/ (function(module) {
+
+module.exports = require("util");
+
+/***/ }),
+
+/***/ 747:
+/***/ (function(module) {
+
+module.exports = require("fs");
 
 /***/ })
 
