@@ -5,6 +5,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         cask_version:
           - '0.8.0'
