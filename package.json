@@ -8,7 +8,6 @@
     "build": "tsc",
     "format": "prettier --write **/*.ts",
     "format-check": "prettier --check **/*.ts",
-    "release": "ncc build && git add -f dist/",
     "test": "jest"
   },
   "repository": {
