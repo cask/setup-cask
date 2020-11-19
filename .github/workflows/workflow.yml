@@ -20,9 +20,9 @@ jobs:
       with:
         version: 26.3
 
-    - run: npm install
-    - run: npm run format-check
-    - run: npm test
+    - run: yarn install
+    - run: yarn run format-check
+    - run: yarn test
 
     - uses: ./
       with:
