@@ -1,0 +1,1 @@
+with travis' pyenv prepending /usr/bin to path, remove the first instance
