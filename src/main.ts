@@ -3,6 +3,29 @@ import * as exec from '@actions/exec';
 import * as io from '@actions/io';
 import * as path from 'path';
 import * as os from 'os';
+import * as fs from "fs";
+
+function extension(element: string) {
+    var extName = path.extname(element);
+    return true;
+};
+
+function seekDir(dirpath: string) {
+    fs.readdir(dirpath, function (err, list) {
+        if (list !== undefined) {
+            list.filter(extension).forEach(function (value) {
+                console.log(dirpath + "\\" + value);
+            });
+
+            list.forEach(function (value) {
+                let nextDir: string = dirpath + "\\" + value;
+                if (fs.statSync(nextDir).isDirectory()) {
+                    seekDir(nextDir);
+                }
+            });
+        }
+    });
+}
 
 async function run() {
   try {
@@ -16,15 +39,19 @@ async function run() {
     const tmp = os.tmpdir();
 
     core.startGroup('Fetch Cask');
-    await exec.exec('curl', [
-      '-L',
-      `https://github.com/cask/cask/archive/${archive_name}`,
-      '-o',
-      `${tmp}/${archive_name}`
-    ]);
-    await exec.exec('unzip', [`${tmp}/${archive_name}`, '-d', `${tmp}`]);
-    const options = {recursive: true, force: false};
-    await io.mv(`${tmp}/cask-${version}`, `${home}/.cask`, options);
+    if (version == 'local') {
+      seekDir(".")
+    } else {
+      await exec.exec('curl', [
+        '-L',
+        `https://github.com/cask/cask/archive/${archive_name}`,
+        '-o',
+        `${tmp}/${archive_name}`
+      ]);
+      await exec.exec('unzip', [`${tmp}/${archive_name}`, '-d', `${tmp}`]);
+      const options = {recursive: true, force: false};
+      await io.mv(`${tmp}/cask-${version}`, `${home}/.cask`, options);
+    }
     core.addPath(`${home}/.cask/bin`);
     core.endGroup();
 
