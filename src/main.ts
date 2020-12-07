@@ -3,28 +3,28 @@ import * as exec from '@actions/exec';
 import * as io from '@actions/io';
 import * as path from 'path';
 import * as os from 'os';
-import * as fs from "fs";
+import * as fs from 'fs';
 
 function extension(element: string) {
-    var extName = path.extname(element);
-    return true;
-};
+  var extName = path.extname(element);
+  return true;
+}
 
 function seekDir(dirpath: string) {
-    fs.readdir(dirpath, function (err, list) {
-        if (list !== undefined) {
-            list.filter(extension).forEach(function (value) {
-                console.log(dirpath + "\\" + value);
-            });
+  fs.readdir(dirpath, function(err, list) {
+    if (list !== undefined) {
+      list.filter(extension).forEach(function(value) {
+        console.log(dirpath + '\\' + value);
+      });
 
-            list.forEach(function (value) {
-                let nextDir: string = dirpath + "\\" + value;
-                if (fs.statSync(nextDir).isDirectory()) {
-                    seekDir(nextDir);
-                }
-            });
+      list.forEach(function(value) {
+        let nextDir: string = dirpath + '\\' + value;
+        if (fs.statSync(nextDir).isDirectory()) {
+          seekDir(nextDir);
         }
-    });
+      });
+    }
+  });
 }
 
 async function run() {
@@ -40,7 +40,7 @@ async function run() {
 
     core.startGroup('Fetch Cask');
     if (version == 'local') {
-      seekDir(".")
+      seekDir('.');
     } else {
       await exec.exec('curl', [
         '-L',
