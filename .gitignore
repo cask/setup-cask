@@ -1,3 +1,7 @@
+## .gitignore
+
+src/setup-cask/.git/
+
 # Ignore node_modules, ncc is used to compile nodejs modules into a single file in the releases branch
 node_modules/
 __tests__/runner/*
