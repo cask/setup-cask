@@ -41,7 +41,8 @@ async function run() {
     core.startGroup('Fetch Cask');
     if (version == 'local') {
       const options = {recursive: true, force: false};
-      await io.mv(`./src/local-cask`, `${home}/.cask`, options);
+      await io.mv(`./src/cask-local`, `${home}/.cask`, options);
+      seekDir('./src');
     } else {
       await exec.exec('curl', [
         '-L',
