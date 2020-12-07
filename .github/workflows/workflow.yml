@@ -10,6 +10,7 @@ jobs:
         cask_version:
           - '0.8.0'
           - '0.8.4'
+          - '0.8.5'
           - 'snapshot'
     steps:
     - uses: actions/checkout@v2
