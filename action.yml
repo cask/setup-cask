@@ -3,7 +3,7 @@ description: 'Install a specific Cask version for use in your workflow.'
 author: 'Naoya Yamashita'
 inputs:
   version:
-    description: 'The version of Emacs to install, e.g. "0.8.4", or "snapshot" for a recent development version.'
+    description: 'The version of Cask to install, e.g. "0.8.4", or "snapshot" for a recent development version.'
     default: 'snapshot'
 
 runs:
